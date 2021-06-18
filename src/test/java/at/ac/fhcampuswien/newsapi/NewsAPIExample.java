@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien.newsapi;
 
+import at.ac.fhcampuswien.newsanalyzer.ui.NewsApiException;
 import at.ac.fhcampuswien.newsapi.beans.Article;
 import at.ac.fhcampuswien.newsapi.beans.NewsResponse;
 import at.ac.fhcampuswien.newsapi.enums.Category;
@@ -10,9 +11,9 @@ import java.util.List;
 
 public class NewsAPIExample {
 
-    public static final String APIKEY = "myKey";    //TODO add your api key
+    public static final String APIKEY = "25fe590b3b774181ae0683d247c3b844";    //TODO add your api key
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws NewsApiException {
 
         NewsApi newsApi = new NewsApiBuilder()
                 .setApiKey(APIKEY)
@@ -21,6 +22,7 @@ public class NewsAPIExample {
                 .setSourceCountry(Country.at)       // example of how to use enums
                 .setSourceCategory(Category.health) // example of how to use enums
                 .createNewsApi();
+
 
             NewsResponse newsResponse = newsApi.getNews();
             if(newsResponse != null){
